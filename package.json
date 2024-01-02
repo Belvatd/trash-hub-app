@@ -10,10 +10,14 @@
     "export": "next export"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.15.5",
+    "axios": "^1.6.3",
     "firebase": "^10.7.1",
+    "firebase-admin": "^12.0.0",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-query-kit": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
