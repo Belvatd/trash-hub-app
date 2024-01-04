@@ -2,15 +2,23 @@
 import { auth } from "@/firebase/config";
 import { signOut } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const handleLogout = async () => await signOut(auth);
+  const router = useRouter();
+  const handleLogout = async () =>
+    await signOut(auth)
+      .then(() => {
+        router.push("/login");
+        console.log("logout");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   return (
     <div>
       Cleaner Restricted Page
-      <Link href={"/login"}>
-        <button onClick={handleLogout}>Logout</button>
-      </Link>
+      <button onClick={handleLogout}>logout</button>
     </div>
   );
 };
