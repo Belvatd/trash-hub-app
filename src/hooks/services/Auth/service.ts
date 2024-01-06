@@ -2,9 +2,9 @@ import { auth } from "@/firebase/config"
 import { database } from "@/firebase/config"
 import {
   createUserWithEmailAndPassword,
-  sendEmailVerification,
   signInWithEmailAndPassword,
   fetchSignInMethodsForEmail,
+  sendEmailVerification,
 } from "firebase/auth"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { setCookie } from "cookies-next"
@@ -28,11 +28,11 @@ export const useCreateUser = createMutation({
 
     if (result) {
       await setDoc(doc(database, "users", result.user.uid), data)
+      await sendEmailVerification(result.user)
     }
 
     return {
-      ...data,
-      uid: result.user.uid,
+      user: result.user,
     }
   },
 })

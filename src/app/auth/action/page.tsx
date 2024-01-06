@@ -1,6 +1,6 @@
 import { auth } from "@/firebase/config"
 import { parseActionCodeURL, checkActionCode } from "firebase/auth"
-import EmailVerify from "./components/EmailVerify"
+import VerifyEmail from "./components/VerifyEmail"
 import ResetPassword from "./components/ResetPassword"
 
 type TPage = {
@@ -22,7 +22,7 @@ const Page = async ({ searchParams }: TPage) => {
   const data = await getOperationAuth(searchParams.oobCode || "")
 
   if (data?.operation === "VERIFY_EMAIL") {
-    return <EmailVerify code={searchParams.oobCode} />
+    return <VerifyEmail code={searchParams.oobCode} />
   }
 
   if (data?.operation === "PASSWORD_RESET") {

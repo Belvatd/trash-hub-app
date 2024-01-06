@@ -23,15 +23,15 @@ const ClientProvider = (props: PropsWithChildren) => {
         return router.push("/")
       }
 
-      if (user && !isRestricted) {
+      if (user && user.emailVerified && !isRestricted) {
         const docRef = await getDoc(doc(database, "users", user.uid))
         const data: any = docRef.data()
 
-        if (data?.type === TypeAccount.CLEANER && user.emailVerified) {
+        if (data?.type === TypeAccount.CLEANER) {
           router.push("/cleaner")
         }
 
-        if (data?.type === TypeAccount.CUSTOMER && user.emailVerified) {
+        if (data?.type === TypeAccount.CUSTOMER) {
           router.push("/customer")
         }
       }

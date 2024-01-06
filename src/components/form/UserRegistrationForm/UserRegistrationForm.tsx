@@ -3,6 +3,7 @@
 import { TypeAccount } from "@/constants/type"
 import { CreateUserSchema, CreateUserType, useCreateUser } from "@/hooks/services/Auth"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useRouter } from "next/navigation"
 import { FieldErrors, useForm } from "react-hook-form"
 
 type TRegistrationFormProps = {
@@ -10,6 +11,7 @@ type TRegistrationFormProps = {
 }
 
 const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
+  const router = useRouter()
   const { register, handleSubmit } = useForm<CreateUserType>({
     resolver: zodResolver(CreateUserSchema),
     defaultValues: {},
@@ -18,6 +20,9 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
 
   const { mutate } = useCreateUser({
     onSuccess(data) {
+      if (!data.user.emailVerified) {
+        router.push("/email-action?action=verifyEmail")
+      }
       console.log(data)
     },
     onError(err: any) {

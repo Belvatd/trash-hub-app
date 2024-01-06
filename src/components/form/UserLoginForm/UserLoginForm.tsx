@@ -25,7 +25,7 @@ const UserLoginForm = () => {
     onSuccess: async (data) => {
       if (!data.user.emailVerified) {
         await sendEmailVerification(data.user)
-        return router.push("/registration/verification")
+        return router.push("/email-action?action=verifyEmail")
       }
 
       router.push(pathTypeAccont[data.type])
