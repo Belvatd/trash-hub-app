@@ -1,4 +1,4 @@
-import { UserRegistrationForm } from "@/app/(form)/UserRegistrationForm"
+import { UserRegistrationForm } from "@/components/form/UserRegistrationForm"
 import { TypeAccount } from "@/constants/type"
 
 const Page = () => {
