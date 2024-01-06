@@ -26,15 +26,16 @@ const Page = () => {
     enabled: !!oobCode,
   })
 
-  if (data?.operation === "VERIFY_EMAIL") {
-    return <VerifyEmail code={oobCode} />
+  if (!data) {
+    return <div>URL Telah Expired</div>
   }
 
-  if (data?.operation === "PASSWORD_RESET") {
-    return <ResetPassword code={oobCode} />
-  }
-
-  return <div>URL Telah Expired</div>
+  return (
+    <div>
+      {data.operation === "VERIFY_EMAIL" && <VerifyEmail code={oobCode} />}
+      {data.operation === "PASSWORD_RESET" && <ResetPassword code={oobCode} />}
+    </div>
+  )
 }
 
 export default Page
