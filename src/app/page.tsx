@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <main className="p-10">
       Trash Hub
-      <div>Tes Auto Deploy Uhuuy</div>
       <div>Anda ingin bergabung sebagai apa</div>
       <div className="flex gap-2">
         <Link href="/registration/cleaner">

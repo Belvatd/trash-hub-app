@@ -18,14 +18,12 @@ const ClientProvider = (props: PropsWithChildren) => {
   const handleAuthentication = () => {
     const isRestricted = restrictedPath.some((path) => pathname.startsWith(path))
 
-    console.log("path restricted", isRestricted)
-
     onAuthStateChanged(auth, async (user) => {
       if (isRestricted && !user) {
         return router.push("/")
       }
 
-      if (user && !isRestricted) {
+      if (user && user.emailVerified && !isRestricted) {
         const docRef = await getDoc(doc(database, "users", user.uid))
         const data: any = docRef.data()
 
