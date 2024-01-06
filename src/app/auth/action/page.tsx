@@ -1,32 +1,37 @@
+"use client"
+
 import { auth } from "@/firebase/config"
 import { parseActionCodeURL, checkActionCode } from "firebase/auth"
 import VerifyEmail from "./components/VerifyEmail"
 import ResetPassword from "./components/ResetPassword"
+import { useSearchParams } from "next/navigation"
+import { createQuery } from "react-query-kit"
 
-type TPage = {
-  searchParams: {
-    mode?: string
-    oobCode?: string
-  }
-}
-
-const getOperationAuth = async (code: string) => {
-  try {
+const useCheckActionCode = createQuery<{ operation: string; email?: string | null }, { code: string }>({
+  queryKey: ["action-code"],
+  fetcher: async ({ code }) => {
     const res = await checkActionCode(auth, code)
+    return { operation: res.operation as string, email: res.data.email }
+  },
+})
 
-    return { operation: res.operation, email: res.data.email }
-  } catch (error) {}
-}
+const Page = () => {
+  const searchParams = useSearchParams()
+  const oobCode = searchParams.get("oobCode") || ""
 
-const Page = async ({ searchParams }: TPage) => {
-  const data = await getOperationAuth(searchParams.oobCode || "")
+  const { data } = useCheckActionCode({
+    variables: {
+      code: oobCode || "",
+    },
+    enabled: !!oobCode,
+  })
 
   if (data?.operation === "VERIFY_EMAIL") {
-    return <VerifyEmail code={searchParams.oobCode} />
+    return <VerifyEmail code={oobCode} />
   }
 
   if (data?.operation === "PASSWORD_RESET") {
-    return <ResetPassword code={searchParams.oobCode} />
+    return <ResetPassword code={oobCode} />
   }
 
   return <div>URL Telah Expired</div>
