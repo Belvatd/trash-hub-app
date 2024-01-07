@@ -99,6 +99,10 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
             >
               {isPending ? <PulseLoader color="white" size={10} /> : "Daftar"}
             </button>
+            <p className="text-center font-medium text-sm text-gray-500">
+              Sudah punya akun?
+              <a className="font-semibold text-sm text-[#309C7A] decoration-0" href="/login"> Masuk</a>
+            </p>
           </form>
         </Stack>
       </Box>
