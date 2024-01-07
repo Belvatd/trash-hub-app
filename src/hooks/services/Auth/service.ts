@@ -20,8 +20,8 @@ export const useCreateUser = createMutation({
     const data = {
       fullName: fullName,
       email: email,
-      address: address,
-      phoneNumber: phoneNumber,
+      address: address || "",
+      phoneNumber: phoneNumber || "",
       type: type,
       role: [],
     }
