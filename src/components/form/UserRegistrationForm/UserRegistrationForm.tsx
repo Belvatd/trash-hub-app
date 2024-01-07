@@ -8,9 +8,10 @@ import {
   useCreateUser,
 } from "@/hooks/services/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { FieldErrors, useForm } from "react-hook-form";
+import { PulseLoader } from "react-spinners";
 
 type TRegistrationFormProps = {
   type: TypeAccount;
@@ -29,7 +30,7 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
     mode: "onChange",
   });
 
-  const { mutate } = useCreateUser({
+  const { mutate, isPending } = useCreateUser({
     onSuccess(data) {
       if (!data.user.emailVerified) {
         router.push("/email-action?action=verifyEmail");
@@ -96,7 +97,7 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
               className="bg-[#309C7A] rounded-[12px] py-[10px] px-[18px] text-white font-semibold"
               type="submit"
             >
-              Daftar
+              {isPending ? <PulseLoader color="white" size={10} /> : "Daftar"}
             </button>
           </form>
         </Stack>
