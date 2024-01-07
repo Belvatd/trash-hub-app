@@ -63,7 +63,7 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
 
   return (
     <div
-      className="h-[100vh] pt-[50%]"
+      className="h-[100vh] pt-[83%]"
       style={{ backgroundImage: "url(https://i.ibb.co/3c0P6T7/Bg.png)" }}
     >
       <Box className="z-100 m-2 h-[500px] bg-white rounded-[16px] p-4">
@@ -82,7 +82,7 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
             </p>
           </div>
           <form
-            className="flex flex-col gap-5 w-96"
+            className="flex flex-col gap-5 w-[100%]"
             onSubmit={handleSubmit(onSubmit, onError)}
           >
             <FormInputText name={"fullName"} control={control} label={"Nama"} />
