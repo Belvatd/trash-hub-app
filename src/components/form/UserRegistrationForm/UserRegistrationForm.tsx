@@ -1,39 +1,43 @@
-"use client"
+"use client";
 
-import { TypeAccount } from "@/constants/type"
-import { CreateUserSchema, CreateUserType, useCreateUser } from "@/hooks/services/Auth"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useRouter } from "next/navigation"
-import { FieldErrors, useForm } from "react-hook-form"
+import { TypeAccount } from "@/constants/type";
+import {
+  CreateUserSchema,
+  CreateUserType,
+  useCreateUser,
+} from "@/hooks/services/Auth";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { FieldErrors, useForm } from "react-hook-form";
 
 type TRegistrationFormProps = {
-  type: TypeAccount
-}
+  type: TypeAccount;
+};
 
 const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
-  const router = useRouter()
+  const router = useRouter();
   const { register, handleSubmit } = useForm<CreateUserType>({
     resolver: zodResolver(CreateUserSchema),
     defaultValues: {},
     mode: "onChange",
-  })
+  });
 
   const { mutate } = useCreateUser({
     onSuccess(data) {
       if (!data.user.emailVerified) {
-        router.push("/email-action?action=verifyEmail")
+        router.push("/email-action?action=verifyEmail");
       }
-      console.log(data)
+      console.log(data);
     },
     onError(err: any) {
-      console.log("error:", err)
+      console.log("error:", err);
     },
-  })
+  });
 
   const onError = (error: FieldErrors<CreateUserType>) => {
-    console.log(error)
-    return error
-  }
+    console.log(error);
+    return error;
+  };
 
   const onSubmit = async (data: CreateUserType) => {
     try {
@@ -44,19 +48,26 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
         address: data?.address,
         fullName: data?.fullName,
         phoneNumber: data?.phoneNumber,
-      }
-      mutate(payload)
+      };
+      mutate(payload);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
+  };
 
   return (
     <div>
-      <form className="flex flex-col gap-2 w-96" onSubmit={handleSubmit(onSubmit, onError)}>
+      <form
+        className="flex flex-col gap-2 w-96"
+        onSubmit={handleSubmit(onSubmit, onError)}
+      >
         <input placeholder="fullName" {...register("fullName")} />
         <input placeholder="email" type="email" {...register("email")} />
-        <input placeholder="password" type="password" {...register("password")} />
+        <input
+          placeholder="password"
+          type="password"
+          {...register("password")}
+        />
         <input placeholder="address" {...register("address")} />
         <input placeholder="nomor telepon" {...register("phoneNumber")} />
         <button className="bg-slate-300" type="submit">
@@ -64,7 +75,7 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default UserRegistrationForm
+export default UserRegistrationForm;

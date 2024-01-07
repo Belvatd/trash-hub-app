@@ -6,3 +6,14 @@
   margin: 0;
   font-family: var(--font-openSans);
 }
+
+html{
+  background-color: #F0F0F0;
+}
+
+.content {
+  max-width: 430px;
+  margin: auto;
+  background: white;
+  height: 100vh;
+}
