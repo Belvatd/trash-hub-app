@@ -24,6 +24,7 @@ export const useCreateUser = createMutation({
       phoneNumber: phoneNumber || "",
       type: type,
       role: [],
+      id: auth.currentUser?.uid,
     }
 
     if (result) {

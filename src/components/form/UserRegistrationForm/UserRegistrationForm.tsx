@@ -63,7 +63,7 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
 
   return (
     <div
-      className="h-[100vh] pt-[83%]"
+      className="h-[100vh] lg:pt-[65%] pt-[83%]"
       style={{ backgroundImage: "url(https://i.ibb.co/3c0P6T7/Bg.png)" }}
     >
       <Box className="z-100 m-2 h-[500px] bg-white rounded-[16px] p-4">
