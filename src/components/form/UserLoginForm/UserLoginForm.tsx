@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Eye, EyeOff } from "react-feather"
 import { FieldErrors, useForm } from "react-hook-form"
+import { ClipLoader } from "react-spinners"
 
 const pathTypeAccont = {
   [TypeAccount.CLEANER]: "/cleaner",
@@ -91,7 +92,7 @@ const UserLoginForm = () => {
         </div>
 
         <button className="btn-success" type="submit" disabled={isPending}>
-          {isPending ? <CircularProgress size={18} /> : "Masuk"}
+          {isPending ? <ClipLoader size={20} color="#309C7A" /> : "Masuk"}
         </button>
       </form>
     </div>

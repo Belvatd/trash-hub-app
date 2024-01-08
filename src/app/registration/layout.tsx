@@ -1,9 +1,9 @@
-import React, { PropsWithChildren } from "react"
+import { PropsWithChildren } from "react"
 
 const Layout = (props: PropsWithChildren) => {
   return (
     <div
-      className="flex h-screen w-full bg-slate-200 bg-cover p-2 pb-4"
+      className="bg-cover bg-center"
       style={{ backgroundImage: "url(https://i.ibb.co/3c0P6T7/Bg.png)" }}
     >
       {props.children}
