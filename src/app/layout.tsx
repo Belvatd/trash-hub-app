@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from "next"
-import { Open_Sans } from "next/font/google"
+import { Inter } from "next/font/google"
 import "@/styles/globals.css"
 import ClientProvider from "./ClientProvider"
-import "@/styles/globals.css";
-import clsx from "clsx";
-import { BottomNavigation } from "@/components/BottomNavigation";
+import "@/styles/globals.css"
+import clsx from "clsx"
 
-const openSans = Open_Sans({
+const interFont = Inter({
   subsets: ["latin"],
-  variable: "--font-openSans",
+  variable: "--font-inter",
   display: "swap",
-});
+})
 
 export const metadata: Metadata = {
   title: "Trash Hub",
@@ -37,14 +36,13 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className={clsx(openSans.variable, "content")}>
-        <BottomNavigation />
+      <body className={clsx(interFont.variable, "content")}>
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
-  );
+  )
 }
