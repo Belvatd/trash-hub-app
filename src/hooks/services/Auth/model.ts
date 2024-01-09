@@ -27,5 +27,19 @@ export const LoginUserSchema = z.object({
     .nonempty({ message: "password harus diisi" }),
 })
 
+export const ResetPasswordSchema = z
+  .object({
+    password: z.string().min(6).nonempty({ message: "password harus diisi" }),
+    confirmPassword: z
+      .string()
+      .min(6)
+      .nonempty({ message: "password harus diisi" }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords tidak sesuai",
+    path: ["confirmPassword"],
+  })
+
 export type CreateUserType = z.infer<typeof CreateUserSchema>
 export type LoginUserType = z.infer<typeof LoginUserSchema>
+export type TResetPassword = z.infer<typeof ResetPasswordSchema>
