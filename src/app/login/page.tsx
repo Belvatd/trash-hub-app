@@ -1,4 +1,3 @@
-"use client"
 import { UserLoginForm } from "@/components/form/UserLoginForm"
 import Link from "next/link"
 import React from "react"
