@@ -13,6 +13,9 @@ export default function Home() {
           <button className="bg-slate-400">Customer</button>
         </Link>
       </div>
+      <Link href="/login" className="mt-1 block">
+        <button className="bg-slate-400">Login</button>
+      </Link>
     </main>
   )
 }

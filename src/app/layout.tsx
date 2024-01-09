@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from "next"
-import { Open_Sans } from "next/font/google"
+import { Inter } from "next/font/google"
 import "@/styles/globals.css"
 import ClientProvider from "./ClientProvider"
 import "@/styles/globals.css"
 import clsx from "clsx"
-import { BottomNavigation } from "@/components/BottomNavigation"
 
-const openSans = Open_Sans({
+const interFont = Inter({
   subsets: ["latin"],
-  variable: "--font-openSans",
+  variable: "--font-inter",
   display: "swap",
 })
 
@@ -34,10 +33,14 @@ export const viewport: Viewport = {
   themeColor: "white",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body className={clsx(openSans.variable, "content")}>
+      <body className={clsx(interFont.variable, "content")}>
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
