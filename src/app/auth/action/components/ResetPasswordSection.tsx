@@ -86,7 +86,7 @@ const ResetPasswordSection = ({ code }: TResetPasswordSectionProps) => {
           />
         </div>
 
-        <button className="btn-success mt-5" disabled={isPending}>
+        <button className="btn-success mt-5 w-full" disabled={isPending}>
           {isPending ? <ClipLoader size={20} color="#309C7A" /> : "Simpan"}
         </button>
       </form>

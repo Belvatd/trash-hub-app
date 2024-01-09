@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react"
 
 const Layout = (props: PropsWithChildren) => {
   return (
-    <div>
+    <div className="relative h-full">
       {props.children}
       <BottomNavigation />
     </div>

@@ -6,10 +6,8 @@ import { Home, Settings, Star, User } from "react-feather"
 const BottomNavigation = () => {
   return (
     <Nav
-      className="mx-0 lg:mx-[505px]"
       style={{
-        maxWidth: "100%",
-        position: "fixed",
+        position: "absolute",
         bottom: 0,
         left: 0,
         right: 0,
