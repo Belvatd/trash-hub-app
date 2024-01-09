@@ -1,8 +1,7 @@
 {
   "theme_color": "#c99051",
   "background_color": "#e1a05e",
-  "display": "standalone",
-  "orientation": "portrait",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "name": "Trash Hub",
