@@ -42,8 +42,10 @@ html {
   width: 94%;
 }
 
-.bgImage-public {
+.bg-patern {
   background-image: url(https://i.ibb.co/3c0P6T7/Bg.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .no-scrollbar::-webkit-scrollbar {

@@ -3,6 +3,7 @@
 import TextField from "@/components/TextField/TextField"
 import { useSendEmailResetPassword } from "@/hooks/services/Auth"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { setCookie } from "cookies-next"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Controller, FieldErrors, useForm } from "react-hook-form"
@@ -26,7 +27,8 @@ const ResetPasswordForm = () => {
 
   const { mutate: sendEmailResetPassword, isPending } =
     useSendEmailResetPassword({
-      onSuccess() {
+      onSuccess(data) {
+        setCookie("email-reset-password", data?.email)
         return router.push("/email-action?action=resetPassword")
       },
       onError(err) {

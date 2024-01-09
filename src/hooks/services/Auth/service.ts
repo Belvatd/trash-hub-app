@@ -9,7 +9,7 @@ import {
   confirmPasswordReset,
 } from "firebase/auth"
 import { doc, getDoc, setDoc } from "firebase/firestore"
-import { setCookie } from "cookies-next"
+import { deleteCookie, setCookie } from "cookies-next"
 
 import { createMutation } from "react-query-kit"
 import { CreateUserType, LoginUserType } from "./model"
@@ -60,9 +60,13 @@ export const useLoginUser = createMutation({
 
 export const useSendEmailResetPassword = createMutation({
   mutationFn: async ({ email }: { email: string }) => {
-    await sendPasswordResetEmail(auth, email).then(() => {
-      return { status: true }
+    const res = await sendPasswordResetEmail(auth, email).then(() => {
+      return { status: true, email }
     })
+
+    if (res) {
+      return res
+    }
   },
 })
 
@@ -74,8 +78,13 @@ export const useResetPassword = createMutation({
     code: string
     password: string
   }) => {
-    await confirmPasswordReset(auth, code, password).then(() => {
+    const res = await confirmPasswordReset(auth, code, password).then(() => {
       return { status: true }
     })
+
+    if (res) {
+      deleteCookie("email-reset-password")
+      return res
+    }
   },
 })
