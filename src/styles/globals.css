@@ -46,6 +46,15 @@ html {
   background-image: url(https://i.ibb.co/3c0P6T7/Bg.png);
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 50px white inset;
   -webkit-text-fill-color: rgb(107 114 128 / var(--tw-text-opacity));
