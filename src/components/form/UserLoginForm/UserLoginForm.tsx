@@ -40,7 +40,7 @@ const UserLoginForm = () => {
       router.push(pathTypeAccont[data.type])
     },
     onError(err: any) {
-      console.log("error:", err)
+      console.log(JSON.stringify(err))
     },
   })
 
@@ -113,7 +113,11 @@ const UserLoginForm = () => {
           </Link>
         </div>
 
-        <button className="btn-success" type="submit" disabled={isPending}>
+        <button
+          className="btn-success w-full"
+          type="submit"
+          disabled={isPending}
+        >
           {isPending ? <ClipLoader size={20} color="#309C7A" /> : "Masuk"}
         </button>
       </form>

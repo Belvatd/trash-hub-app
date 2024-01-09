@@ -5,6 +5,8 @@ import {
   signInWithEmailAndPassword,
   fetchSignInMethodsForEmail,
   sendEmailVerification,
+  sendPasswordResetEmail,
+  confirmPasswordReset,
 } from "firebase/auth"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { setCookie } from "cookies-next"
@@ -14,7 +16,14 @@ import { CreateUserType, LoginUserType } from "./model"
 import { TypeAccount } from "@/constants/type"
 
 export const useCreateUser = createMutation({
-  mutationFn: async ({ email, password, type, address, phoneNumber, fullName }: CreateUserType) => {
+  mutationFn: async ({
+    email,
+    password,
+    type,
+    address,
+    phoneNumber,
+    fullName,
+  }: CreateUserType) => {
     const result = await createUserWithEmailAndPassword(auth, email, password)
 
     const data = {
@@ -46,5 +55,27 @@ export const useLoginUser = createMutation({
     const userData = docRef.data()
 
     return { user: result.user, type: userData?.type as TypeAccount }
+  },
+})
+
+export const useSendEmailResetPassword = createMutation({
+  mutationFn: async ({ email }: { email: string }) => {
+    await sendPasswordResetEmail(auth, email).then(() => {
+      return { status: true }
+    })
+  },
+})
+
+export const useResetPassword = createMutation({
+  mutationFn: async ({
+    code,
+    password,
+  }: {
+    code: string
+    password: string
+  }) => {
+    await confirmPasswordReset(auth, code, password).then(() => {
+      return { status: true }
+    })
   },
 })
