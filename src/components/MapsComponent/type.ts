@@ -12,4 +12,6 @@ export type TGoogleMaps = {
   loading?: boolean
   style?: React.CSSProperties
   id?: string
+  mapContainerClassName?: string
+  withDetailAddress?: boolean
 }

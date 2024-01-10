@@ -10,13 +10,11 @@ import {
   defaultLatLng,
   defaultZoom,
   mapContainerStyle,
-  messageError,
   optionsGoogleMap,
 } from "./constants"
 
 import { getAddressFromLatLng } from "@/utils/getAddressFromLatLng"
 import { formatAddressGoogleMaps } from "@/utils/formatAddressGoogleMaps"
-import { checkLocationPermission } from "@/utils/checkLocationPermission"
 
 const GoogleMaps = ({
   center,
@@ -24,6 +22,8 @@ const GoogleMaps = ({
   loading: loadingProps,
   style,
   id,
+  mapContainerClassName,
+  withDetailAddress,
 }: TGoogleMaps) => {
   const refMap = useRef<google.maps.Map>()
   const [latLng, setLatLng] = useState<TLatLng>(defaultLatLng)
@@ -99,6 +99,7 @@ const GoogleMaps = ({
   return (
     <>
       <GoogleMap
+        mapContainerClassName={mapContainerClassName}
         mapContainerStyle={{ ...mapContainerStyle, ...style }}
         center={latLng || defaultLatLng}
         onLoad={onLoad}
@@ -116,20 +117,22 @@ const GoogleMaps = ({
         <MarkerIcon />
       </GoogleMap>
 
-      <div className="py-4">
-        {isLoading ? (
-          "loading ..."
-        ) : !isValidLocation ? (
-          "location not valid"
-        ) : (
-          <>
-            <h5 className="text-tertiary500 pb-2 text-base font-bold">
-              {address.name}
-            </h5>
-            <p className="text-tertiary300">{address.secondary}</p>
-          </>
-        )}
-      </div>
+      {withDetailAddress && (
+        <div className="py-4">
+          {isLoading ? (
+            "loading ..."
+          ) : !isValidLocation ? (
+            "location not valid"
+          ) : (
+            <>
+              <h5 className="text-tertiary500 pb-2 text-base font-bold">
+                {address.name}
+              </h5>
+              <p className="text-tertiary300">{address.secondary}</p>
+            </>
+          )}
+        </div>
+      )}
     </>
   )
 }

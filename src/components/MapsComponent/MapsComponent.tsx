@@ -1,10 +1,15 @@
 "use client"
-import { useEffect, useState } from "react"
+import { HTMLAttributes, useEffect, useState } from "react"
 import GoogleMaps from "./GoogleMapsProvider"
-import { TLatLng } from "./type"
+import { TGoogleMaps, TLatLng } from "./type"
 import { checkLocationPermission } from "@/utils/checkLocationPermission"
 
-const MapsComponent = () => {
+type TMapsComponent = {
+  containerProps?: HTMLAttributes<HTMLDivElement>
+  mapProps?: TGoogleMaps
+}
+const MapsComponent = (props: TMapsComponent) => {
+  const { containerProps, mapProps } = props
   const [location, setLocation] = useState<TLatLng>()
   const getLocationNow = async () => {
     console.log("getLokasi saat ini")
@@ -27,8 +32,8 @@ const MapsComponent = () => {
   }, [])
 
   return (
-    <div className="h-[300px] w-full">
-      <GoogleMaps center={location} />
+    <div {...containerProps}>
+      <GoogleMaps center={location} {...mapProps} />
     </div>
   )
 }
