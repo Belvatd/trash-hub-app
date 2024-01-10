@@ -7,9 +7,10 @@ import { checkLocationPermission } from "@/utils/checkLocationPermission"
 type TMapsComponent = {
   containerProps?: HTMLAttributes<HTMLDivElement>
   mapProps?: TGoogleMaps
-}
+  customPinpoint?: TLatLng
+} & TGoogleMaps
 const MapsComponent = (props: TMapsComponent) => {
-  const { containerProps, mapProps } = props
+  const { containerProps, mapProps, customPinpoint } = props
   const [location, setLocation] = useState<TLatLng>()
   const getLocationNow = async () => {
     console.log("getLokasi saat ini")
@@ -33,7 +34,7 @@ const MapsComponent = (props: TMapsComponent) => {
 
   return (
     <div {...containerProps}>
-      <GoogleMaps center={location} {...mapProps} />
+      <GoogleMaps center={customPinpoint || location} {...mapProps} />
     </div>
   )
 }

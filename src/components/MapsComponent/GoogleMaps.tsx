@@ -24,6 +24,7 @@ const GoogleMaps = ({
   id,
   mapContainerClassName,
   withDetailAddress,
+  draggable,
 }: TGoogleMaps) => {
   const refMap = useRef<google.maps.Map>()
   const [latLng, setLatLng] = useState<TLatLng>(defaultLatLng)
@@ -106,7 +107,7 @@ const GoogleMaps = ({
         onUnmount={onUnmount}
         onDragStart={() => setIsLoading(true)}
         onDragEnd={handleDragEnd}
-        options={optionsGoogleMap}
+        options={{ draggable, ...optionsGoogleMap }}
         zoom={defaultZoom}
       >
         {/* {!isLoading && (

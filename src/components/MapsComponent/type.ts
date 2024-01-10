@@ -14,4 +14,5 @@ export type TGoogleMaps = {
   id?: string
   mapContainerClassName?: string
   withDetailAddress?: boolean
+  draggable?: boolean
 }

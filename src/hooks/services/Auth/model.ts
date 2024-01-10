@@ -7,12 +7,20 @@ export const CreateUserSchema = z.object({
     .email({ message: "Masukan format email yang benar" })
     .nonempty({ message: "email harus diisi" }),
   password: z.string({ required_error: "password harus diisi" }).min(6, { message: "password minimal 6 karakter" }),
-  address: z.string().optional(),
+  address: z.array(z.object({
+    fullAddress: z.string(),
+    addressName: z.string(),
+    pinpoint: z.object({
+      _lat: z.number(),
+      _long: z.number(),
+    }),
+  })).optional(),
   phoneNumber: z.string().optional(),
   fullName: z
     .string({ required_error: "nama lengkap harus diisi" })
     .nonempty({ message: "nama lengkap harus diisi" }),
   type: z.string().optional(),
+  indexAddressSelected: z.number().optional(),
 })
 
 export const LoginUserSchema = z.object({
