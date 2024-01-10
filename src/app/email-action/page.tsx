@@ -13,12 +13,12 @@ const interval = 1000
 
 const content: Record<string, { title: string; desc: string }> = {
   verifyEmail: {
-    title: "Title",
-    desc: "Description",
+    title: "Verifikasi Akun",
+    desc: "Sillakan cek email Anda untuk memverifikasi pendaftaran Akun",
   },
   resetPassword: {
-    title: "Lupa Kata Sandi",
-    desc: "Sillakan cek email Anda untuk melanjutkan proses ganti kata sandi.",
+    title: "Verifikasi OTP",
+    desc: "Sillakan cek email Anda untuk memverifikasi ganti kata sandi.",
   },
 }
 
