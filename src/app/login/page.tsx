@@ -6,8 +6,8 @@ function Page() {
   return (
     <div className="mt-auto grid w-full gap-5 rounded-2xl bg-white p-4 pb-5">
       <div>
-        <p className="text-gray900 text-xl font-semibold">Selamat Datang</p>
-        <p className="text-gray500 mt-2 text-sm">
+        <p className="text-xl font-semibold text-gray-900">Selamat Datang</p>
+        <p className="mt-2 text-sm text-gray-500">
           Masuk untuk lingkungan Anda lebih bersih!
         </p>
       </div>
@@ -16,7 +16,7 @@ function Page() {
 
       <div className="flex items-center gap-2">
         <div className="grow border-b border-gray-200"></div>
-        <span className="text-gray400 shrink text-xs">Atau</span>
+        <span className="shrink text-xs text-gray-400">Atau</span>
         <div className="grow border-b border-gray-200"></div>
       </div>
 
@@ -27,9 +27,9 @@ function Page() {
         Masuk dengan Google
       </button>
 
-      <div className="text-gray500 flex items-center justify-center gap-1 text-sm font-medium">
+      <div className="flex items-center justify-center gap-1 text-sm font-medium text-gray-500">
         Belum punya akun?{" "}
-        <Link href={"/registration/cleaner"} className="text-brand600">
+        <Link href={"/registration/cleaner"} className="text-brand-600">
           Daftar
         </Link>
       </div>

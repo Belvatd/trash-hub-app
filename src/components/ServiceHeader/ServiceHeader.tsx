@@ -20,7 +20,7 @@ const ServiceHeader = (props: TServiceHeader) => {
         gap={"8px"}
         display="flex"
         alignItems="center"
-        color="text-gray900"
+        color="text-gray-900"
       >
         <IconButton
           className="text-gray-900"

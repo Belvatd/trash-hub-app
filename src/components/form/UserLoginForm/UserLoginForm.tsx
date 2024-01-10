@@ -1,5 +1,6 @@
 "use client"
 
+import { useAuth } from "@/app/ClientProvider"
 import TextField from "@/components/TextField/TextField"
 import { TypeAccount } from "@/constants/type"
 import {
@@ -23,6 +24,7 @@ const pathTypeAccont = {
 
 const UserLoginForm = () => {
   const router = useRouter()
+  const { setUserLogin } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const { handleSubmit, control } = useForm<LoginUserType>({
     resolver: zodResolver(LoginUserSchema),
@@ -32,6 +34,7 @@ const UserLoginForm = () => {
 
   const { mutate, isPending } = useLoginUser({
     onSuccess: async (data) => {
+      setUserLogin && setUserLogin(data.user)
       if (!data.user.emailVerified) {
         await sendEmailVerification(data.user)
         return router.push("/email-action?actionverifyEmail")
@@ -93,7 +96,7 @@ const UserLoginForm = () => {
                 caption={error?.message}
                 addonRight={() => (
                   <button
-                    className="text-gray400"
+                    className="text-gray-400"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -106,7 +109,7 @@ const UserLoginForm = () => {
 
         <div className="flex">
           <Link
-            className="mb-5 ml-auto mt-2 inline-block text-sm font-semibold text-brand600"
+            className="text-brand-600 mb-5 ml-auto mt-2 inline-block text-sm font-semibold"
             href={"/reset-password"}
           >
             Lupa kata sandi?

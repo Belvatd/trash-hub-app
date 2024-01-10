@@ -3,7 +3,7 @@
 
 @layer components {
   .btn-success {
-    @apply inline-block h-11 items-center justify-center rounded-xl bg-brand500 px-[18px] 
+    @apply bg-brand-500 inline-block h-11 items-center justify-center rounded-xl px-[18px] 
     py-[10px] text-white disabled:bg-gray-200;
   }
 }
@@ -43,7 +43,7 @@ html {
 }
 
 .bg-patern {
-  background-image: url(https://i.ibb.co/3c0P6T7/Bg.png);
+  background-image: url("/assets/images/patern.png");
   background-size: cover;
   background-position: center;
 }

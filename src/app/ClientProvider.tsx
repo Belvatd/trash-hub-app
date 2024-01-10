@@ -1,30 +1,51 @@
 "use client"
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { onAuthStateChanged } from "firebase/auth"
+import { User, onAuthStateChanged } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 import { usePathname, useRouter } from "next/navigation"
-import { PropsWithChildren, useEffect, useState } from "react"
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
 import { TypeAccount } from "@/constants/type"
 import { auth, database } from "@/firebase/config"
 
 const restrictedPath = ["/cleaner", "/customer"]
 
+type TAuthContext = {
+  user?: User
+  setUserLogin?: (data: User) => void
+}
+
+const AuthContext = createContext<TAuthContext>({})
+export const useAuth = () => useContext<TAuthContext>(AuthContext)
+
 const ClientProvider = (props: PropsWithChildren) => {
+  const [user, setUser] = useState<User>()
   const [queryClient] = useState(() => new QueryClient())
   const pathname = usePathname()
   const router = useRouter()
 
-  const handleAuthentication = () => {
-    const isRestricted = restrictedPath.some((path) => pathname.startsWith(path))
+  const isRestricted = restrictedPath.some((path) => pathname.startsWith(path))
 
-    onAuthStateChanged(auth, async (user) => {
-      if (isRestricted && !user) {
+  const setUserLogin = (data: User) => setUser(data)
+
+  const handleAuthentication = () => {
+    onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser && !user) {
+        setUser(currentUser)
+      }
+
+      if (isRestricted && !currentUser) {
         return router.push("/")
       }
 
-      if (user && user.emailVerified && !isRestricted) {
-        const docRef = await getDoc(doc(database, "users", user.uid))
+      if (currentUser && currentUser.emailVerified && !isRestricted) {
+        const docRef = await getDoc(doc(database, "users", currentUser.uid))
         const data: any = docRef.data()
 
         if (data?.type === TypeAccount.CLEANER) {
@@ -43,7 +64,13 @@ const ClientProvider = (props: PropsWithChildren) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <QueryClientProvider client={queryClient}>{props.children}</QueryClientProvider>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthContext.Provider value={{ user, setUserLogin }}>
+        {props.children}
+      </AuthContext.Provider>
+    </QueryClientProvider>
+  )
 }
 
 export default ClientProvider

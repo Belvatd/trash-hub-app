@@ -47,8 +47,8 @@ const ResetPasswordSection = ({ code }: TResetPasswordSectionProps) => {
   return (
     <div className="mb-1 grid w-full gap-5">
       <div>
-        <p className="text-xl font-semibold text-gray900">Lupa Kata Sandi</p>
-        <p className="mt-2 text-sm text-gray500">Buat sandi baru</p>
+        <p className="text-xl font-semibold text-gray-900">Lupa Kata Sandi</p>
+        <p className="mt-2 text-sm text-gray-500">Buat sandi baru</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +60,7 @@ const ResetPasswordSection = ({ code }: TResetPasswordSectionProps) => {
             caption={errors?.password?.message}
             addonRight={() => (
               <button
-                className="text-gray400"
+                className="text-gray-400"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -76,7 +76,7 @@ const ResetPasswordSection = ({ code }: TResetPasswordSectionProps) => {
             caption={errors?.confirmPassword?.message}
             addonRight={() => (
               <button
-                className="text-gray400"
+                className="text-gray-400"
                 onClick={() => setShowPassword2(!showPassword2)}
               >
                 {showPassword2 ? <EyeOff size={16} /> : <Eye size={16} />}

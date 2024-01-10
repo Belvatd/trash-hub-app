@@ -31,21 +31,21 @@ const TextField = forwardRef<HTMLInputElement, TTextFieldProps>(
     return (
       <div>
         {label && (
-          <div className="mb-[6px] text-sm font-medium text-gray700">
+          <div className="mb-[6px] text-sm font-medium text-gray-700">
             {label}
           </div>
         )}
         <div
           className={clsx(
-            "flex h-11 w-full gap-2 rounded-xl border border-gray200 bg-white px-[14px] py-[10px] font-normal",
-            disabled && "bg-gray50",
+            "flex h-11 w-full gap-2 rounded-xl border border-gray-200 bg-white px-[14px] py-[10px] font-normal",
+            disabled && "bg-gray-50",
             isError && "!border-error300",
           )}
         >
           {AddonLeft && <AddonLeft />}
           <input
             className={clsx(
-              "flex-grow text-gray500 focus:text-gray-900 focus:outline-none focus:placeholder:text-transparent disabled:bg-gray50",
+              "flex-grow text-gray-500 focus:text-gray-900 focus:outline-none focus:placeholder:text-transparent disabled:bg-gray-50",
               className,
             )}
             ref={handleRef}
@@ -58,7 +58,7 @@ const TextField = forwardRef<HTMLInputElement, TTextFieldProps>(
           <div
             className={clsx(
               "ml-1 mt-[6px] text-sm",
-              isError ? "text-error500" : "text-gray500",
+              isError ? "text-error500" : "text-gray-500",
             )}
           >
             {caption}

@@ -1,0 +1,170 @@
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_ii_7156_2648)">
+<g clip-path="url(#clip0_7156_2648)">
+<rect width="44" height="44" rx="8" fill="#EE46BC"/>
+<g style="mix-blend-mode:multiply">
+<path d="M0 0H11V11H0V0Z" fill="#EAECF0"/>
+<path d="M0 0C3.03757 0 5.5 2.46243 5.5 5.5C5.5 8.53757 3.03757 11 0 11V5.5V0Z" fill="#F2F4F7"/>
+<path d="M11 0H22V11H11V0Z" fill="#F9FAFB"/>
+<path d="M11 11C11 7.96243 13.4624 5.5 16.5 5.5C19.5376 5.5 22 7.96243 22 11H16.5H11Z" fill="#F2F4F7"/>
+<path d="M0 11H11V22H0V11Z" fill="#F2F4F7"/>
+<path d="M11 22H5.5V11H11V22Z" fill="#F2F4F7"/>
+<path d="M11 11H22V22H11V11Z" fill="#EAECF0"/>
+<path d="M11 22C11 18.9624 13.4624 16.5 16.5 16.5C19.5376 16.5 22 18.9624 22 22H16.5H11Z" fill="#FCFCFD"/>
+<path d="M0 22H22V44H0V22Z" fill="#F2F4F7"/>
+<path d="M22 22C22 28.0751 17.0751 33 11 33C4.92487 33 0 28.0751 0 22H11H22Z" fill="#F9FAFB"/>
+<path d="M22 0H44V22H22V0Z" fill="#F2F4F7"/>
+<path d="M44 22H33V0L44 0V22Z" fill="#EAECF0"/>
+<path d="M22 22H33V33H22V22Z" fill="#F2F4F7"/>
+<path d="M22 22H27.5V33H22V22Z" fill="#F9FAFB"/>
+<path d="M33 22H44V33H33V22Z" fill="#EAECF0"/>
+<path d="M44 22V27.5H33V22H44Z" fill="#FCFCFD"/>
+<path d="M22 33H33V44H22V33Z" fill="#EAECF0"/>
+<path d="M22 44V38.5H33V44H22Z" fill="#F2F4F7"/>
+<path d="M33 33H44V44H33V33Z" fill="#EAECF0"/>
+<path d="M44 44C40.9624 44 38.5 41.5376 38.5 38.5C38.5 35.4624 40.9624 33 44 33V38.5V44Z" fill="#FCFCFD"/>
+<path d="M0 0H22V22H0V0Z" fill="#FCFCFD"/>
+<path d="M22 22H11V0L22 0V22Z" fill="#F2F4F7"/>
+<path d="M0 22H22V44H0V22Z" fill="#F2F4F7"/>
+<path d="M22 0H33V11H22V0Z" fill="#F2F4F7"/>
+<path d="M33 0H44V11H33V0Z" fill="#F9FAFB"/>
+<path d="M22 11H33V22H22V11Z" fill="#F2F4F7"/>
+<path d="M22 22V11L33 22H22Z" fill="#F2F4F7"/>
+<path d="M33 11H44V22H33V11Z" fill="#EAECF0"/>
+<path d="M33 22V16.5H44V22H33Z" fill="#FCFCFD"/>
+<path d="M22 22H33V33H22V22Z" fill="#FCFCFD"/>
+<path d="M33 22V33L22 22H33Z" fill="#EAECF0"/>
+<path d="M33 22H44V33H33V22Z" fill="#EAECF0"/>
+<path d="M44 33H33L44 22V33Z" fill="#F9FAFB"/>
+<path d="M22 33H33V44H22V33Z" fill="#F2F4F7"/>
+<path d="M33 33V44L22 33H33Z" fill="#FCFCFD"/>
+<path d="M33 33H44V44H33V33Z" fill="#F2F4F7"/>
+<path d="M33 33C36.0376 33 38.5 35.4624 38.5 38.5C38.5 41.5376 36.0376 44 33 44V38.5V33Z" fill="#F9FAFB"/>
+<path d="M0 0H11V11H0V0Z" fill="#F2F4F7"/>
+<path d="M0 11C0 7.96243 2.46243 5.5 5.5 5.5C8.53757 5.5 11 7.96243 11 11H5.5H0Z" fill="#F2F4F7"/>
+<path d="M11 0H22V11H11V0Z" fill="#F9FAFB"/>
+<path d="M11 0C14.0376 0 16.5 2.46243 16.5 5.5C16.5 8.53757 14.0376 11 11 11V5.5V0Z" fill="#EAECF0"/>
+<path d="M0 11H11V22H0V11Z" fill="#F9FAFB"/>
+<path d="M0 11H11L0 22V11Z" fill="#EAECF0"/>
+<path d="M11 11H22V22H11V11Z" fill="#EAECF0"/>
+<path d="M0 22H22V44H0V22Z" fill="#F9FAFB"/>
+<path d="M0 44V33H22V44H0Z" fill="#F2F4F7"/>
+<path d="M22 0H44V22H22V0Z" fill="#F2F4F7"/>
+<path d="M44 0V11H22V0L44 0Z" fill="#F9FAFB"/>
+<path d="M22 22H44V44H22V22Z" fill="#EAECF0"/>
+<path d="M22 44V33H44V44H22Z" fill="#EAECF0"/>
+<path d="M0 0H11V11H0V0Z" fill="#FCFCFD"/>
+<path d="M11 11H5.5V0L11 0V11Z" fill="#F9FAFB"/>
+<path d="M11 0H22V11H11V0Z" fill="#FCFCFD"/>
+<path d="M11 0H16.5V11H11V0Z" fill="#EAECF0"/>
+<path d="M0 11H11V22H0V11Z" fill="#FCFCFD"/>
+<path d="M11 11H22V22H11V11Z" fill="#EAECF0"/>
+<path d="M22 22H16.5V11H22V22Z" fill="#FCFCFD"/>
+<path d="M0 22H22V44H0V22Z" fill="#F9FAFB"/>
+<path d="M22 22C22 28.0751 17.0751 33 11 33C4.92487 33 0 28.0751 0 22H11H22Z" fill="#F2F4F7"/>
+<path d="M22 0H33V11H22V0Z" fill="#F2F4F7"/>
+<path d="M33 11H22L33 0V11Z" fill="#FCFCFD"/>
+<path d="M33 0H44V11H33V0Z" fill="#F2F4F7"/>
+<path d="M33 0C36.0376 0 38.5 2.46243 38.5 5.5C38.5 8.53757 36.0376 11 33 11V5.5V0Z" fill="#F2F4F7"/>
+<path d="M22 11H33V22H22V11Z" fill="#F2F4F7"/>
+<path d="M22 11H33L22 22V11Z" fill="#FCFCFD"/>
+<path d="M33 11H44V22H33V11Z" fill="#F2F4F7"/>
+<path d="M22 22H44V44H22V22Z" fill="#F2F4F7"/>
+<path d="M0 0H11V11H0V0Z" fill="#EAECF0"/>
+<path d="M0 11V0L11 11H0Z" fill="#F2F4F7"/>
+<path d="M11 0H22V11H11V0Z" fill="#F2F4F7"/>
+<path d="M0 11H11V22H0V11Z" fill="#FCFCFD"/>
+<path d="M11 11C11 14.0376 8.53757 16.5 5.5 16.5C2.46243 16.5 0 14.0376 0 11H5.5H11Z" fill="#EAECF0"/>
+<path d="M11 11H22V22H11V11Z" fill="#EAECF0"/>
+<path d="M0 22H22V44H0V22Z" fill="#F9FAFB"/>
+<path d="M0 44V22L22 44H0Z" fill="#F2F4F7"/>
+<path d="M22 0H33V11H22V0Z" fill="#F2F4F7"/>
+<path d="M33 0H44V11H33V0Z" fill="#F2F4F7"/>
+<path d="M22 11H33V22H22V11Z" fill="#F9FAFB"/>
+<path d="M33 11V22L22 11H33Z" fill="#EAECF0"/>
+<path d="M33 11H44V22H33V11Z" fill="#EAECF0"/>
+<path d="M33 11H44L33 22V11Z" fill="#EAECF0"/>
+<path d="M22 22H33V33H22V22Z" fill="#EAECF0"/>
+<path d="M33 22V27.5H22V22H33Z" fill="#F9FAFB"/>
+<path d="M33 22H44V33H33V22Z" fill="#EAECF0"/>
+<path d="M33 22H38.5V33H33V22Z" fill="#F2F4F7"/>
+<path d="M22 33H33V44H22V33Z" fill="#EAECF0"/>
+<path d="M22 33H27.5V44H22V33Z" fill="#F2F4F7"/>
+<path d="M33 33H44V44H33V33Z" fill="#F9FAFB"/>
+<path d="M33 33C36.0376 33 38.5 35.4624 38.5 38.5C38.5 41.5376 36.0376 44 33 44V38.5V33Z" fill="#EAECF0"/>
+<path d="M0 0H22V22H0V0Z" fill="#F2F4F7"/>
+<path d="M0 0H11V22H0V0Z" fill="#EAECF0"/>
+<path d="M0 22H11V33H0V22Z" fill="#EAECF0"/>
+<path d="M0 33V27.5H11V33H0Z" fill="#F9FAFB"/>
+<path d="M11 22H22V33H11V22Z" fill="#F2F4F7"/>
+<path d="M22 33C18.9624 33 16.5 30.5376 16.5 27.5C16.5 24.4624 18.9624 22 22 22V27.5V33Z" fill="#EAECF0"/>
+<path d="M0 33H11V44H0V33Z" fill="#F2F4F7"/>
+<path d="M0 33H5.5V44H0V33Z" fill="#F9FAFB"/>
+<path d="M11 33H22V44H11V33Z" fill="#F2F4F7"/>
+<path d="M22 33V44L11 33H22Z" fill="#F9FAFB"/>
+<path d="M22 0H44V22H22V0Z" fill="#EAECF0"/>
+<path d="M22 22H44V44H22V22Z" fill="#F2F4F7"/>
+<path d="M22 44V33H44V44H22Z" fill="#EAECF0"/>
+<path d="M0 0H11V11H0V0Z" fill="#EAECF0"/>
+<path d="M11 11C7.96243 11 5.5 8.53757 5.5 5.5C5.5 2.46243 7.96243 0 11 0V5.5V11Z" fill="#F2F4F7"/>
+<path d="M11 0H22V11H11V0Z" fill="#FCFCFD"/>
+<path d="M11 0H22L11 11V0Z" fill="#F2F4F7"/>
+<path d="M0 11H11V22H0V11Z" fill="#FCFCFD"/>
+<path d="M11 11V22L0 11H11Z" fill="#EAECF0"/>
+<path d="M11 11H22V22H11V11Z" fill="#F9FAFB"/>
+<path d="M22 22H16.5V11H22V22Z" fill="#EAECF0"/>
+<path d="M0 22H11V33H0V22Z" fill="#F9FAFB"/>
+<path d="M11 33H5.5V22H11V33Z" fill="#F2F4F7"/>
+<path d="M11 22H22V33H11V22Z" fill="#F2F4F7"/>
+<path d="M22 33C18.9624 33 16.5 30.5376 16.5 27.5C16.5 24.4624 18.9624 22 22 22V27.5V33Z" fill="#EAECF0"/>
+<path d="M0 33H11V44H0V33Z" fill="#F2F4F7"/>
+<path d="M11 44H0L11 33V44Z" fill="#FCFCFD"/>
+<path d="M11 33H22V44H11V33Z" fill="#F9FAFB"/>
+<path d="M22 33V38.5H11V33H22Z" fill="#F2F4F7"/>
+<path d="M22 0H44V22H22V0Z" fill="#F9FAFB"/>
+<path d="M44 0C44 6.07513 39.0751 11 33 11C26.9249 11 22 6.07513 22 0L33 0L44 0Z" fill="#F2F4F7"/>
+<path d="M22 22H33V33H22V22Z" fill="#F2F4F7"/>
+<path d="M22 33V27.5H33V33H22Z" fill="#F9FAFB"/>
+<path d="M33 22H44V33H33V22Z" fill="#F2F4F7"/>
+<path d="M33 33V22L44 33H33Z" fill="#F2F4F7"/>
+<path d="M22 33H33V44H22V33Z" fill="#F2F4F7"/>
+<path d="M33 33H44V44H33V33Z" fill="#EAECF0"/>
+<path d="M44 44H38.5V33H44V44Z" fill="#F2F4F7"/>
+</g>
+<g filter="url(#filter1_i_7156_2648)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17 13C17 11.8954 17.8954 11 19 11H25C26.1046 11 27 11.8954 27 13H28C28.7956 13 29.5587 13.3161 30.1213 13.8787C30.6839 14.4413 31 15.2043 31 16V30C31 30.7957 30.6839 31.5587 30.1213 32.1213C29.5587 32.6839 28.7957 33 28 33H16C15.2043 33 14.4413 32.6839 13.8787 32.1213C13.3161 31.5587 13 30.7957 13 30V16C13 15.2044 13.3161 14.4413 13.8787 13.8787C14.4413 13.3161 15.2044 13 16 13H17ZM17 15H16C15.7348 15 15.4804 15.1054 15.2929 15.2929C15.1054 15.4804 15 15.7348 15 16V30C15 30.2652 15.1054 30.5196 15.2929 30.7071C15.4804 30.8946 15.7348 31 16 31H28C28.2652 31 28.5196 30.8946 28.7071 30.7071C28.8946 30.5196 29 30.2652 29 30V16C29 15.7348 28.8946 15.4804 28.7071 15.2929C28.5196 15.1054 28.2652 15 28 15H27C27 16.1046 26.1046 17 25 17H19C17.8954 17 17 16.1046 17 15ZM25 15H19V13H25V15Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_ii_7156_2648" x="0" y="-1" width="44" height="46" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="-1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_7156_2648"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow_7156_2648" result="effect2_innerShadow_7156_2648"/>
+</filter>
+<filter id="filter1_i_7156_2648" x="13" y="11" width="18" height="22" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="0.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_7156_2648"/>
+</filter>
+<clipPath id="clip0_7156_2648">
+<rect width="44" height="44" rx="8" fill="white"/>
+</clipPath>
+</defs>
+</svg>
