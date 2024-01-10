@@ -10,6 +10,8 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Stack } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Eye, EyeOff } from "react-feather";
 import { FieldErrors, useForm } from "react-hook-form";
 import { PulseLoader } from "react-spinners";
 
@@ -19,6 +21,7 @@ type TRegistrationFormProps = {
 
 const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false)
   const { handleSubmit, control } = useForm<CreateUserType>({
     resolver: zodResolver(CreateUserSchema),
     defaultValues: {
@@ -88,10 +91,18 @@ const UserRegistrationForm = ({ type }: TRegistrationFormProps) => {
             <FormInputText name={"fullName"} control={control} label={"Nama"} />
             <FormInputText name={"email"} control={control} label={"Email"} />
             <FormInputText
-              type="password"
+              type={showPassword ? "text" : "password"}
               name={"password"}
               control={control}
               label={"Kata Sandi"}
+              addonRight={() => (
+                <button
+                  className="text-gray400"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              )}
             />
             <button
               className="bg-[#309C7A] rounded-[12px] py-[10px] px-[18px] text-white font-semibold"
