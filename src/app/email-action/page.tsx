@@ -55,21 +55,21 @@ const Page = () => {
 
   return (
     <div className="mt-3 grid w-full gap-5 rounded-xl bg-white p-4 pb-5">
-      <div className="mx-auto h-12 w-12 rounded-lg bg-brand25 p-3">
-        <Mail className="text-brand600" />
+      <div className="bg-brand-25 mx-auto h-12 w-12 rounded-lg p-3">
+        <Mail className="text-brand-600" />
       </div>
 
       <div className="text-center">
-        <h1 className="text-xl font-semibold text-gray900">
+        <h1 className="text-xl font-semibold text-gray-900">
           {content[action || ""].title}
         </h1>
-        <p className="mx-auto mt-2 w-[300px] text-sm text-gray500">
+        <p className="mx-auto mt-2 w-[300px] text-sm text-gray-500">
           {content[action || ""].desc}
         </p>
       </div>
 
       <button
-        className="text-sm font-semibold text-brand600 disabled:text-gray-400"
+        className="text-brand-600 text-sm font-semibold disabled:text-gray-400"
         onClick={handleClick}
         disabled={!!timeLeft || isPending}
       >

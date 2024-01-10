@@ -15,10 +15,10 @@ const useCheckActionCode = createQuery<
 >({
   queryKey: ["action-code"],
   fetcher: async ({ code }) => {
+    console.log("called")
     const res = await checkActionCode(auth, code)
     return { operation: res.operation as string, email: res.data.email }
   },
-  refetchOnMount: false,
 })
 
 const Page = () => {
@@ -29,7 +29,7 @@ const Page = () => {
     variables: {
       code: oobCode || "",
     },
-    retry: false,
+    retry: 1,
     enabled: !!oobCode,
   })
 
@@ -39,10 +39,10 @@ const Page = () => {
 
   if (!data) {
     return (
-      <div className="mx-auto my-auto text-gray500">
+      <div className="mx-auto my-auto text-gray-500">
         <p>URL Telah Expired</p>
         <Link href={"/"} className="mt-2">
-          <button className="inline-block h-9 w-full px-4 text-sm text-brand600">
+          <button className="text-brand-600 inline-block h-9 w-full px-4 text-sm">
             Kembali
           </button>
         </Link>
@@ -51,10 +51,10 @@ const Page = () => {
   }
 
   return (
-    <div className="w-full">
+    <>
       {data.operation === "VERIFY_EMAIL" && <VerifyEmail code={oobCode} />}
       {data.operation === "PASSWORD_RESET" && <ResetPassword code={oobCode} />}
-    </div>
+    </>
   )
 }
 

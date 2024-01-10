@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={clsx(interFont.variable, "content")}>
+      <body className={clsx(interFont.variable, "content text-gray-900")}>
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>

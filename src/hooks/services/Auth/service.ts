@@ -7,6 +7,8 @@ import {
   sendEmailVerification,
   sendPasswordResetEmail,
   confirmPasswordReset,
+  updateCurrentUser,
+  updateProfile,
 } from "firebase/auth"
 import { doc, getDoc, setDoc } from "firebase/firestore"
 import { deleteCookie, setCookie } from "cookies-next"
@@ -37,6 +39,9 @@ export const useCreateUser = createMutation({
     }
 
     if (result) {
+      await updateProfile(result.user, {
+        displayName: fullName,
+      })
       await setDoc(doc(database, "users", result.user.uid), data)
       await sendEmailVerification(result.user)
     }

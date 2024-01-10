@@ -1,23 +1,36 @@
 "use client"
 
 import { BottomNavigation as Nav, BottomNavigationAction } from "@mui/material"
-import { Home, Settings, Star, User } from "react-feather"
+import clsx from "clsx"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-const BottomNavigation = () => {
+type TBottomNavigationProps = {
+  items: { route: string; icon: JSX.Element }[]
+}
+
+const BottomNavigation = ({ items }: TBottomNavigationProps) => {
+  const pathname = usePathname()
+
+  const checkActive = (route: string) => pathname === route
+
   return (
-    <Nav
-      style={{
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        right: 0,
-      }}
-    >
-      <BottomNavigationAction icon={<Home />} />
-      <BottomNavigationAction icon={<Star />} />
-      <BottomNavigationAction icon={<User />} />
-      <BottomNavigationAction icon={<Settings />} />
-    </Nav>
+    <div className="absolute bottom-0 w-full border-t bg-white pb-[14px]">
+      <div className="flex w-full items-center justify-center p-[10px]">
+        {items.map((item, i) => (
+          <div key={i} className="flex-1">
+            <div
+              className={clsx(
+                "mx-auto w-10 rounded-xl p-2 text-gray-500",
+                checkActive(item.route) && "bg-brand-50 !text-brand-600",
+              )}
+            >
+              <Link href={item.route}>{item.icon}</Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
