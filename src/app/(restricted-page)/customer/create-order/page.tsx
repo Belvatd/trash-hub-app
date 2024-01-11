@@ -1,11 +1,13 @@
 "use client"
 
+import { BottomSheet } from "@/components/BottomSheet"
 import { FormInputText } from "@/components/FormInputText"
 import { FormInputTextArea } from "@/components/FormInputTextArea"
 import { MapsComponent } from "@/components/MapsComponent"
 import ServiceHeader from "@/components/ServiceHeader/ServiceHeader"
 import { auth } from "@/firebase/config"
 import { useGetUserById } from "@/hooks/services/Auth"
+import { useCreateOrder } from "@/hooks/services/CustomerOrders"
 import {
   CreateOrderSchema,
   CreateOrderType,
@@ -21,6 +23,7 @@ import { BounceLoader } from "react-spinners"
 const Page = () => {
   const [userId, setUserId] = useState("")
   const router = useRouter()
+  const [open, setOpen] = useState(false)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -31,6 +34,7 @@ const Page = () => {
   }, [])
 
   const { data: dataUserById, isFetching, status } = useGetUserById(userId)
+  const { mutate } = useCreateOrder()
 
   const pinpoint = {
     lat: dataUserById?.address?.[dataUserById?.indexAddressSelected]?.pinpoint
@@ -39,9 +43,10 @@ const Page = () => {
       ?._long,
   }
 
-  const { handleSubmit, control, watch } = useForm<CreateOrderType>({
+  const { handleSubmit, control } = useForm<CreateOrderType>({
     resolver: zodResolver(CreateOrderSchema),
     defaultValues: {
+      customerId: "",
       addressNotes: "",
       orderNotes: "",
       trashPicture: "",
@@ -49,18 +54,20 @@ const Page = () => {
         _lat: 0,
         _long: 0,
       },
+      status: "",
     },
     mode: "onChange",
   })
 
   const onError = (error: FieldErrors<CreateOrderType>) => {
-    console.log(error, "aaa")
+    console.log(error)
     return error
   }
 
   const onSubmit = async (data: CreateOrderType) => {
     try {
       const payload = {
+        customerId: userId,
         addressNotes: data?.addressNotes,
         orderNotes: data?.orderNotes,
         trashPicture: data?.trashPicture,
@@ -71,8 +78,9 @@ const Page = () => {
             dataUserById?.address?.[dataUserById?.indexAddressSelected]
               ?.pinpoint?._long,
         },
+        status: "WAITING",
       }
-      // mutate(payload)
+      mutate(payload)
       console.log(payload, "payload")
     } catch (e) {
       console.log(e)
@@ -153,14 +161,38 @@ const Page = () => {
           <div className="relative top-[60px] flex justify-center px-6 py-3">
             <button
               className="w-full rounded-[12px] bg-[#309C7A] py-[10px] font-semibold text-white"
-              type="submit"
+              type="button"
+              onClick={() => setOpen(true)}
             >
-              <div className="flex justify-center gap-2 align-middle items-center">
+              <div className="flex items-center justify-center gap-2 align-middle">
                 <p className="text-[16px]">Pesan Pick-Up</p>
                 <ArrowRight size={20} />
               </div>
             </button>
           </div>
+          <BottomSheet className="h-fit p-4" open={open} setOpen={setOpen} closeOutside>
+            <div className="flex flex-col gap-4">
+              <p className="text-[16px] font-semibold">Cek Data Pick-Up Anda</p>
+              <p className="pb-[4px] text-[14px] font-normal text-gray-500">
+                Apakah data yang Anda input sudah sesuai?
+              </p>
+              <button
+                className="w-full rounded-[12px] bg-[#309C7A] py-[10px] font-semibold text-white"
+                type="submit"
+                onClick={() => {
+                  const searchParams = new URLSearchParams();
+                  searchParams.set("_lat", pinpoint?.lat?.toString());
+                  searchParams.set("_long", pinpoint?.lng?.toString());
+                  router.push(`/customer/create-order/pickup-process?${searchParams.toString()}`);
+                }}
+              >
+                <div className="flex items-center justify-center gap-2 align-middle">
+                  <p className="text-[16px]">Pesan Pick-Up</p>
+                  <ArrowRight size={20} />
+                </div>
+              </button>
+            </div>
+          </BottomSheet>
         </form>
       )}
     </div>
