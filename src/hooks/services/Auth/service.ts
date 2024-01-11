@@ -17,6 +17,7 @@ import { CreateUserType, LoginUserType } from "./model"
 import { QueryHook, TypeAccount } from "@/constants/type"
 import { useQuery } from "@tanstack/react-query"
 import { NullishExtractor } from "@/constants/type"
+import { TAddressItem } from "@/app/(restricted-page)/customer/address/edit/page"
 
 export const useCreateUser = createMutation({
   mutationFn: async ({
@@ -136,7 +137,7 @@ export const useAddAddressUser = createMutation({
     address,
     userId,
   }: {
-    address: NullishExtractor<CreateUserType["address"]>[number]
+    address: TAddressItem
     userId: string
   }) => {
     const docRef = doc(database, "users", userId)
@@ -146,6 +147,38 @@ export const useAddAddressUser = createMutation({
     }).then(() => true)
 
     if (res) {
+      return { message: "Success add address" }
+    }
+  },
+})
+
+export const useEditCurrentAddress = createMutation({
+  mutationFn: async ({
+    address,
+    userId,
+    idx,
+  }: {
+    address: TAddressItem
+    userId: string
+    idx: number
+  }) => {
+    const docRef = doc(database, "users", userId)
+    const res = await getDoc(docRef)
+
+    const addressUser: TAddressItem[] = res.data()?.address
+
+    const addressUpdated = addressUser.map((item, i) => {
+      if (i === idx) {
+        return address
+      }
+      return item
+    })
+
+    const resUpdated = await updateDoc(docRef, {
+      address: addressUpdated,
+    }).then(() => true)
+
+    if (resUpdated) {
       return { message: "Success add address" }
     }
   },
