@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { ArrowRight, Edit, Info } from "react-feather"
 import { FieldErrors, useForm } from "react-hook-form"
-import { BounceLoader } from "react-spinners"
+import { BounceLoader, PulseLoader } from "react-spinners"
 
 const Page = () => {
   const [userId, setUserId] = useState("")
@@ -150,7 +150,7 @@ const Page = () => {
               <button
                 type="button"
                 className="flex items-start"
-                onClick={() => router.push("/customer/add-address")}
+                onClick={() => router.push("/customer/address")}
               >
                 <Edit color="#309C7A" size={20} />
               </button>
@@ -202,8 +202,14 @@ const Page = () => {
                 type="submit"
               >
                 <div className="flex items-center justify-center gap-2 align-middle">
-                  <p className="text-[16px]">Pesan Pick-Up</p>
-                  <ArrowRight size={20} />
+                  {isPending ? (
+                    <PulseLoader color="white" size={10} />
+                  ) : (
+                    <div className="flex items-center justify-center gap-2 align-middle">
+                      <p className="text-[16px]">Pesan Pick-Up</p>
+                      <ArrowRight size={20} />
+                    </div>
+                  )}
                 </div>
               </button>
             </div>
