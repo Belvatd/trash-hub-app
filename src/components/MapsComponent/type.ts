@@ -15,5 +15,6 @@ export type TGoogleMaps = {
   mapContainerClassName?: string
   withDetailAddress?: boolean
   draggable?: boolean
-  isLoadingMarker ?: boolean
+  isLoadingMarker?: boolean
+  onClickSelect?: () => void
 }

@@ -8,12 +8,18 @@ type TMapsComponent = {
   containerProps?: HTMLAttributes<HTMLDivElement>
   mapProps?: TGoogleMaps
   customPinpoint?: TLatLng
+  isGetLocationNow?: boolean
+  onSelectMap?: () => void
 } & TGoogleMaps
 const MapsComponent = (props: TMapsComponent) => {
-  const { containerProps, mapProps, customPinpoint } = props
+  const {
+    containerProps,
+    mapProps,
+    customPinpoint,
+    isGetLocationNow = true,
+  } = props
   const [location, setLocation] = useState<TLatLng>()
   const getLocationNow = async () => {
-    console.log("getLokasi saat ini")
     await checkLocationPermission({
       isOnlyRequestPermission: false,
       callbackFn: ({ type, latLng: locationLatLng }) => {
@@ -28,13 +34,23 @@ const MapsComponent = (props: TMapsComponent) => {
     })
   }
 
-  useEffect(() => {
+  const handleClickSelect = () => {
     void getLocationNow()
-  }, [])
+  }
+
+  useEffect(() => {
+    if (isGetLocationNow) {
+      void getLocationNow()
+    }
+  }, [isGetLocationNow])
 
   return (
     <div {...containerProps}>
-      <GoogleMaps center={customPinpoint || location} {...mapProps} />
+      <GoogleMaps
+        center={customPinpoint || location}
+        {...mapProps}
+        onClickSelect={handleClickSelect}
+      />
     </div>
   )
 }

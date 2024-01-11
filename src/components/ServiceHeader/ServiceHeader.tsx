@@ -1,6 +1,5 @@
 "use client"
 
-import { Box, IconButton, Typography } from "@mui/material"
 import { useRouter } from "next/navigation"
 import { ArrowLeft } from "react-feather"
 
@@ -14,22 +13,12 @@ const ServiceHeader = (props: TServiceHeader) => {
   const route = useRouter()
   return (
     <>
-      <Box
-        paddingX={"24px"}
-        paddingY={"16px"}
-        gap={"8px"}
-        display="flex"
-        alignItems="center"
-        color="text-gray-900"
-      >
-        <IconButton
-          className="text-gray-900"
-          onClick={() => route.push(goToPage)}
-        >
+      <div className="flex items-center gap-2 px-6 py-4 text-gray-900">
+        <button onClick={() => route.push(goToPage)}>
           <ArrowLeft />
-        </IconButton>
-        <Typography variant="h6">{pageName}</Typography>
-      </Box>
+        </button>
+        <p className="textxl font-semibold">{pageName}</p>
+      </div>
     </>
   )
 }

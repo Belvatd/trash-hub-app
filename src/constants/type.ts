@@ -8,5 +8,10 @@ export enum OrderType {
   CLEANER = "CLEANER",
   ROUTINE_PICKUP = "ROUTINE_PICKUP",
 }
-export type QueryHook = { data: any; status: "error" | "success" | "pending"; isFetching: boolean; };
+export type QueryHook = {
+  data: any
+  status: "error" | "success" | "pending"
+  isFetching: boolean
+}
 
+export type NullishExtractor<T> = Exclude<T, undefined | null>
