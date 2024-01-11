@@ -87,7 +87,7 @@ const Page = () => {
 
   return (
     <div>
-      <ServiceHeader pageName="Pilih Alamat" goToPage="/create-order" />
+      <ServiceHeader pageName="Pilih Alamat" goToPage="/customer/create-order" />
       <BounceLoader
         color="#309C7A"
         className="fixed left-1/2 -translate-x-1/2 transform"
