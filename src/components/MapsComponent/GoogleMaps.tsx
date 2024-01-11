@@ -25,6 +25,7 @@ const GoogleMaps = ({
   mapContainerClassName,
   withDetailAddress,
   draggable,
+  isLoadingMarker
 }: TGoogleMaps) => {
   const refMap = useRef<google.maps.Map>()
   const [latLng, setLatLng] = useState<TLatLng>(defaultLatLng)
@@ -115,7 +116,7 @@ const GoogleMaps = ({
             <div className="tooltip text-primary25">Alamatmu di sini</div>
           </div>
         )} */}
-        <MarkerIcon />
+        <MarkerIcon isLoading={isLoadingMarker} />
       </GoogleMap>
 
       {withDetailAddress && (
