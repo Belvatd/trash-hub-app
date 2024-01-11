@@ -25,7 +25,7 @@ const ServiceHeader = (props: TServiceHeader) => {
         <button onClick={handleClickBack}>
           <ArrowLeft />
         </button>
-        <p className="textxl font-semibold">{pageName}</p>
+        <p className="text-xl font-semibold">{pageName}</p>
       </div>
     </>
   )
