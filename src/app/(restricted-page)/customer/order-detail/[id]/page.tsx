@@ -7,13 +7,10 @@ import {
   useGetTrash,
 } from "@/hooks/services/CustomerOrders"
 import { useParams } from "next/navigation"
-import { useEffect, useState } from "react"
 import SubHeaderStatus from "./components/SubHeaderStatus"
-import { OrderStatus, OrderType } from "@/constants/type"
-import { Info, MessageSquare, Phone } from "react-feather"
+import { OrderStatus } from "@/constants/type"
 import SellerSection from "./components/SellerSection"
 import { BounceLoader } from "react-spinners"
-import TextField from "@/components/TextField/TextField"
 import TrashSection from "./components/TrashSection"
 import formatDate from "@/utils/formatDate"
 
@@ -29,7 +26,7 @@ const Page = () => {
 
   const { data: trashData } = useGetTrash({
     variables: {
-      id: orderData?.trashId,
+      id: orderData?.trashId || "",
     },
     enabled: !!orderData?.trashId,
   })
@@ -48,7 +45,7 @@ const Page = () => {
 
       {!!orderData && !isLoading && (
         <div className="flex-grow">
-          <SubHeaderStatus status={OrderStatus.DONE} />
+          <SubHeaderStatus status={OrderStatus.DONE} xp={trashData?.totalXp} />
 
           <div className="flex flex-col px-6">
             <div className="flex items-center justify-between py-4">
@@ -66,9 +63,7 @@ const Page = () => {
 
             <div className="py-6">
               <p className="mb-4 font-semibold">Lokasi Pick-Up</p>
-              <p className="text-sm text-gray-500">
-                {orderData?.fullAddress as string}
-              </p>
+              <p className="text-sm text-gray-500">{orderData?.fullAddress}</p>
             </div>
             <hr />
 

@@ -4,6 +4,7 @@ import { ArrowRight } from "react-feather"
 
 type TSubHeaderStatusProps = {
   status: OrderStatus
+  xp?: number
 }
 
 const TEXT_STATUS = {
@@ -33,10 +34,12 @@ const COLOR = {
   },
 }
 
-const SubHeaderStatus = ({ status }: TSubHeaderStatusProps) => {
+const SubHeaderStatus = ({ status, xp = 0 }: TSubHeaderStatusProps) => {
   const isButtonLacak = [OrderStatus.ONGOING, OrderStatus.ONTAKING].includes(
     status,
   )
+
+  const isShowXp = status === OrderStatus.DONE
 
   const handleClickLacak = () => {
     console.log("lacal")
@@ -50,6 +53,8 @@ const SubHeaderStatus = ({ status }: TSubHeaderStatusProps) => {
       )}
     >
       <p>{TEXT_STATUS[status]}</p>
+
+      {isShowXp && <p className="ml-auto">+{xp}xp</p>}
       {isButtonLacak && (
         <button
           className="ml-auto flex items-center gap-2 text-sm font-semibold"
