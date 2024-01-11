@@ -44,6 +44,8 @@ const Page = () => {
       ?._long,
   }
 
+  const date = new Date()
+
   useEffect(() => {
     const searchParams = new URLSearchParams()
     searchParams.set("_lat", pinpoint?.lat?.toString())
@@ -68,6 +70,9 @@ const Page = () => {
         _long: 0,
       },
       status: "",
+      createdDate: "",
+      fullAddress: "",
+      trashId: "",
     },
     mode: "onChange",
   })
@@ -92,6 +97,11 @@ const Page = () => {
               ?.pinpoint?._long,
         },
         status: "WAITING",
+        createdDate: date.toISOString(),
+        fullAddress:
+          dataUserById?.address?.[dataUserById?.indexAddressSelected]
+            ?.fullAddress,
+        trashId: "",
       }
       const result = await mutateAsync(payload)
       console.log(result)

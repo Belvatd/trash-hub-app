@@ -63,11 +63,17 @@ const Page = () => {
     if (statusProgress === "ONPROGRESS") {
       const timeout = setTimeout(() => {
         setStatusProgress("DONE")
+        mutateEdit({
+          id: orderId || "",
+          updatedData: {
+            status: "DONE",
+          },
+        })
       }, 8000)
 
       return () => clearTimeout(timeout)
     }
-  }, [statusProgress])
+  }, [statusProgress, mutateEdit, orderId])
 
   useEffect(() => {
     if (statusProgress === "DONE") {
@@ -79,9 +85,7 @@ const Page = () => {
     }
   }, [statusProgress, router])
 
-  const {
-    data: dataUserById,
-  } = useGetUserById("w3XsqIgIS0f7XJzVP5Ybk7irZ842")
+  const { data: dataUserById } = useGetUserById("w3XsqIgIS0f7XJzVP5Ybk7irZ842")
 
   const pinpoint = {
     lat: Number(_lat),
@@ -133,7 +137,7 @@ const Page = () => {
                       Cleaner
                     </p>
                   </div>
-                  <div className="w-[25%] flex gap-2">
+                  <div className="flex w-[25%] gap-2">
                     <div className="flex h-[36px] w-[36px] items-center justify-center rounded-lg bg-gray-50 p-2">
                       <Phone size={20} color="#309C7A" />
                     </div>

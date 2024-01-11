@@ -11,6 +11,9 @@ export const useCreateOrder = createMutation({
     trashPicture,
     pinpoint,
     status,
+    createdDate,
+    trashId,
+    fullAddress
   }: CreateOrderType) => {
     const docRef = await addDoc(collection(database, "customer-orders"), {
       customerId,
@@ -19,6 +22,9 @@ export const useCreateOrder = createMutation({
       trashPicture,
       pinpoint,
       status,
+      createdDate,
+      trashId,
+      fullAddress
     });
 
     const docSnap = await getDoc(docRef);
