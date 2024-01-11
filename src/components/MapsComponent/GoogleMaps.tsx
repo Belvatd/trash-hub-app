@@ -25,7 +25,7 @@ const GoogleMaps = ({
   mapContainerClassName,
   withDetailAddress,
   draggable,
-  isLoadingMarker
+  isLoadingMarker,
   onClickSelect,
 }: TGoogleMaps) => {
   const refMap = useRef<google.maps.Map>()
@@ -102,13 +102,16 @@ const GoogleMaps = ({
   }, [])
 
   useEffect(() => {
+    setIsLoading(true)
+
     if (center) {
       setLatLng(center)
-      void getAddressFromGeocode(center || defaultLatLng)
+      if (!address.placeId) {
+        void getAddressFromGeocode(center || defaultLatLng)
+      }
     }
-
-    setIsLoading(true)
-  }, [center, getAddressFromGeocode])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [center])
 
   return (
     <>

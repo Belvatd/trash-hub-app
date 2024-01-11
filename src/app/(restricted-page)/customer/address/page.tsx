@@ -41,6 +41,13 @@ const Page = () => {
     })
   }
 
+  const handleClickCard = (idx: number) => {
+    if (idx !== activeAddress) {
+      setActiveAddress(idx)
+      onEditIndexActive(idx)
+    }
+  }
+
   useEffect(() => {
     if (dataUserById?.address?.length > 0) {
       setActiveAddress(dataUserById?.indexAddressSelected)
@@ -68,12 +75,12 @@ const Page = () => {
               <AddressCard
                 key={`address-${i}`}
                 isActive={activeAddress === i}
-                onClick={() => {
-                  setActiveAddress(i)
-                  onEditIndexActive(i)
-                }}
+                onClick={() => handleClickCard(i)}
                 addressName={address.addressName || "-"}
                 address={address.fullAddress || "-"}
+                onClickEdit={() =>
+                  router.push(`/customer/address/edit?id=${i}`)
+                }
               />
             ))}
         </div>

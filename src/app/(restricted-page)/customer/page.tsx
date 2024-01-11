@@ -1,6 +1,6 @@
 "use client"
 
-import { useAuth } from "@/app/ClientProvider"
+import { useAuth } from "@/app/(restricted-page)/AuthProvider"
 import { auth } from "@/firebase/config"
 import getGreetingTime from "@/utils/getGreetingTime"
 import { signOut } from "firebase/auth"
@@ -48,7 +48,7 @@ const Page = () => {
       <div className="flex-grow px-6">
         <div className="-mt-10 flex items-center justify-between rounded-xl bg-white p-4 shadow-lg">
           <div className="flex gap-2">
-            <div className="bg-brand-50 text-brand-500 w-9 rounded-lg p-2">
+            <div className="w-9 rounded-lg bg-brand-50 p-2 text-brand-500">
               <Pocket size={20} />
             </div>
 

@@ -9,7 +9,6 @@ type TMapsComponent = {
   mapProps?: TGoogleMaps
   customPinpoint?: TLatLng
   isGetLocationNow?: boolean
-  onSelectMap?: () => void
 } & TGoogleMaps
 const MapsComponent = (props: TMapsComponent) => {
   const {

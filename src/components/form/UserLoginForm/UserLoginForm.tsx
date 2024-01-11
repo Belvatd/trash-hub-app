@@ -1,6 +1,6 @@
 "use client"
 
-import { useAuth } from "@/app/ClientProvider"
+import { useAuth } from "@/app/(restricted-page)/AuthProvider"
 import TextField from "@/components/TextField/TextField"
 import { TypeAccount } from "@/constants/type"
 import {
@@ -109,7 +109,7 @@ const UserLoginForm = () => {
 
         <div className="flex">
           <Link
-            className="text-brand-600 mb-5 ml-auto mt-2 inline-block text-sm font-semibold"
+            className="mb-5 ml-auto mt-2 inline-block text-sm font-semibold text-brand-600"
             href={"/reset-password"}
           >
             Lupa kata sandi?
