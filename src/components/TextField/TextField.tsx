@@ -58,7 +58,7 @@ const TextField = forwardRef<HTMLInputElement, TTextFieldProps>(
           <div
             className={clsx(
               "ml-1 mt-[6px] text-sm",
-              isError ? "text-error500" : "text-gray-500",
+              isError ? "text-error-500" : "text-gray-500",
             )}
           >
             {caption}

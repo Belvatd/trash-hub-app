@@ -25,6 +25,8 @@ const GoogleMaps = ({
   mapContainerClassName,
   withDetailAddress,
   draggable,
+
+  onClickSelect,
 }: TGoogleMaps) => {
   const refMap = useRef<google.maps.Map>()
   const [latLng, setLatLng] = useState<TLatLng>(defaultLatLng)
@@ -33,6 +35,7 @@ const GoogleMaps = ({
     secondary: "",
     placeId: "",
   })
+  const [showButton, setShowButton] = useState(false)
   const [isValidLocation, setIsValidLocation] = useState<boolean>(true)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -57,6 +60,15 @@ const GoogleMaps = ({
         placeId,
       })
       setLatLng(location)
+
+      onSubmit &&
+        onSubmit({
+          addressName,
+          addressSecondary,
+          placeId,
+          lat: location.lat,
+          lng: location.lng,
+        })
     } catch {
       setIsValidLocation(false)
     } finally {
@@ -92,13 +104,27 @@ const GoogleMaps = ({
   useEffect(() => {
     if (center) {
       setLatLng(center)
+      void getAddressFromGeocode(center || defaultLatLng)
     }
+
     setIsLoading(true)
-    void getAddressFromGeocode(center || defaultLatLng)
   }, [center, getAddressFromGeocode])
 
   return (
     <>
+      {(showButton || !center) && (
+        <button
+          className="absolute bottom-0 left-0 right-0 top-0 z-[1002] m-auto h-[34px] w-[92px] rounded-xl 
+    bg-white px-3 py-2 text-xs font-semibold text-gray-700"
+          onClick={(event) => {
+            event.preventDefault()
+            return onClickSelect && onClickSelect()
+          }}
+        >
+          Pilih di peta
+        </button>
+      )}
+
       <GoogleMap
         mapContainerClassName={mapContainerClassName}
         mapContainerStyle={{ ...mapContainerStyle, ...style }}

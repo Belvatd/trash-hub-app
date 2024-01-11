@@ -3,6 +3,7 @@ import clsx from "clsx"
 import {
   ChangeEventHandler,
   ElementType,
+  HTMLProps,
   LegacyRef,
   TextareaHTMLAttributes,
   forwardRef,
@@ -19,61 +20,57 @@ export type TTextAreaProps = {
 } & TextareaHTMLAttributes<HTMLTextAreaElement>
 
 // eslint-disable-next-line react/display-name
-const TextArea = forwardRef<HTMLInputElement, TTextAreaProps>((props, ref) => {
-  const {
-    className,
-    addonLeft: AddonLeft,
-    addonRight: AddonRight,
-    label,
-    disabled,
-    isError,
-    caption,
-    onChange,
-    ...rest
-  } = props
+const TextArea = forwardRef<HTMLTextAreaElement, TTextAreaProps>(
+  (props, ref) => {
+    const {
+      className,
+      addonLeft: AddonLeft,
+      addonRight: AddonRight,
+      label,
+      disabled,
+      isError,
+      caption,
+      maxLength,
+      value,
+      ...rest
+    } = props
 
-  const inputRef = useRef<HTMLInputElement>()
-  const handleRef = useForkRef(inputRef, ref)
+    const inputRef = useRef<HTMLTextAreaElement>(null)
+    const handleRef = useForkRef(inputRef, ref)
 
-  return (
-    <div>
-      {label && (
-        <div className="mb-[6px] text-sm font-medium text-gray-700">
-          {label}
-        </div>
-      )}
-      <div
-        className={clsx(
-          "flex h-11 w-full gap-2 font-normal",
-          disabled && "bg-gray-50",
-          isError && "!border-error300",
+    return (
+      <div>
+        {label && (
+          <div className="mb-[6px] text-sm font-medium text-gray-700">
+            {label}
+          </div>
         )}
-      >
-        {AddonLeft && <AddonLeft />}
         <textarea
+          {...rest}
+          maxLength={maxLength}
+          ref={handleRef}
           className={clsx(
-            "flex-grow rounded-xl border border-gray-200 bg-white px-[14px] py-[10px]  text-gray-500 focus:text-gray-900 focus:outline-none focus:placeholder:text-transparent disabled:bg-gray-50",
+            "h-[120px] w-full gap-2 rounded-xl border border-gray-200 bg-white px-[14px] py-[10px] font-normal",
+            "text-gray-500 focus:text-gray-900 focus:outline-none focus:placeholder:text-transparent disabled:bg-gray-50",
+            isError && "!border-error-300",
             className,
           )}
-          // ref={handleRef as LegacyRef<HTMLTextAreaElement>}
-          onChange={onChange}
           disabled={disabled}
-          {...rest}
+          value={value?.toString()}
         />
-        {AddonRight && <AddonRight />}
+        {caption && (
+          <div
+            className={clsx(
+              "ml-1 mt-[6px] text-sm",
+              isError ? "text-error-500" : "text-gray-500",
+            )}
+          >
+            {caption}
+          </div>
+        )}
       </div>
-      {caption && (
-        <div
-          className={clsx(
-            "ml-1 mt-[6px] text-sm",
-            isError ? "text-error500" : "text-gray-500",
-          )}
-        >
-          {caption}
-        </div>
-      )}
-    </div>
-  )
-})
+    )
+  },
+)
 
 export default TextArea

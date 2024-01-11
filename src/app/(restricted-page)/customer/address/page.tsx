@@ -4,12 +4,21 @@ import ServiceHeader from "@/components/ServiceHeader/ServiceHeader"
 import { auth } from "@/firebase/config"
 import { useEditUser, useGetUserById } from "@/hooks/services/Auth"
 import clsx from "clsx"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-import { Edit } from "react-feather"
+import { Edit, PlusCircle } from "react-feather"
 import { BounceLoader } from "react-spinners"
+
+type TAddressCardProps = {
+  addressName: string
+  address: string
+  onClick?: () => void
+  i: number
+}
 
 const Page = () => {
   const [userId, setUserId] = useState("")
+  const router = useRouter()
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -44,13 +53,6 @@ const Page = () => {
     }
   }, [dataUserById?.address?.length, dataUserById?.indexAddressSelected])
 
-  type TAddressCardProps = {
-    addressName: string
-    address: string
-    onClick?: () => void
-    i: number
-  }
-
   const AddressCard = ({
     addressName,
     address,
@@ -69,8 +71,8 @@ const Page = () => {
         >
           {dataUserById?.address?.length > 0 && (
             <div className="w-full">
-              <p className="pb-[4px] font-medium text-gray900">{addressName}</p>
-              <p className="text-[12px] font-normal text-gray500">{address}</p>
+              <p className="text-gray900 pb-[4px] font-medium">{addressName}</p>
+              <p className="text-gray500 text-[12px] font-normal">{address}</p>
             </div>
           )}
           <button
@@ -86,27 +88,42 @@ const Page = () => {
   }
 
   return (
-    <div>
-      <ServiceHeader pageName="Pilih Alamat" goToPage="/customer/create-order" />
-      <BounceLoader
-        color="#309C7A"
-        className="fixed left-1/2 -translate-x-1/2 transform"
-        loading={isFetching}
+    <div className="h-full pb-3">
+      <ServiceHeader
+        pageName="Pilih Alamat"
+        goToPage="/customer/create-order"
       />
-      {!isFetching &&
-        status === "success" &&
-        dataUserById?.address?.map((address: any, i: number) => (
-          <AddressCard
-            key={`address-${i}`}
-            i={i}
-            onClick={() => {
-              setActiveCard(i)
-              onEditIndexActive(i)
-            }}
-            addressName={address.addressName || "-"}
-            address={address.fullAddress || "-"}
-          />
-        ))}
+
+      <div className="p-6">
+        <BounceLoader
+          color="#309C7A"
+          className="mx-auto mb-6"
+          loading={isFetching}
+        />
+
+        {!isFetching &&
+          status === "success" &&
+          dataUserById?.address?.map((address: any, i: number) => (
+            <AddressCard
+              key={`address-${i}`}
+              i={i}
+              onClick={() => {
+                setActiveCard(i)
+                onEditIndexActive(i)
+              }}
+              addressName={address.addressName || "-"}
+              address={address.fullAddress || "-"}
+            />
+          ))}
+
+        <button
+          className="button flex w-full bg-brand-50 text-brand-600"
+          onClick={() => router.push("/customer/address/add")}
+        >
+          <PlusCircle size={20} />
+          Tambah Alamat
+        </button>
+      </div>
     </div>
   )
 }
