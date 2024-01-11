@@ -24,6 +24,7 @@ const Page = () => {
   const [userId, setUserId] = useState("")
   const router = useRouter()
   const [open, setOpen] = useState(false)
+  const [orderId, setOrderId] = useState("")
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -34,7 +35,7 @@ const Page = () => {
   }, [])
 
   const { data: dataUserById, isFetching, status } = useGetUserById(userId)
-  const { mutate } = useCreateOrder()
+  const { mutateAsync, isPending, status: statusOrder } = useCreateOrder()
 
   const pinpoint = {
     lat: dataUserById?.address?.[dataUserById?.indexAddressSelected]?.pinpoint
@@ -42,6 +43,18 @@ const Page = () => {
     lng: dataUserById?.address?.[dataUserById?.indexAddressSelected]?.pinpoint
       ?._long,
   }
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams()
+    searchParams.set("_lat", pinpoint?.lat?.toString())
+    searchParams.set("_long", pinpoint?.lng?.toString())
+    searchParams.set("orderId", orderId)
+    if (!isPending && statusOrder === "success" && orderId) {
+      router.push(
+        `/customer/create-order/pickup-process?${searchParams.toString()}`,
+      )
+    }
+  }, [isPending, statusOrder, orderId, pinpoint?.lat, pinpoint?.lng, router])
 
   const { handleSubmit, control } = useForm<CreateOrderType>({
     resolver: zodResolver(CreateOrderSchema),
@@ -80,8 +93,11 @@ const Page = () => {
         },
         status: "WAITING",
       }
-      mutate(payload)
-      console.log(payload, "payload")
+      const result = await mutateAsync(payload)
+      console.log(result)
+      if (result) {
+        setOrderId(result?.id)
+      }
     } catch (e) {
       console.log(e)
     }
@@ -170,7 +186,12 @@ const Page = () => {
               </div>
             </button>
           </div>
-          <BottomSheet className="h-fit p-4" open={open} setOpen={setOpen} closeOutside>
+          <BottomSheet
+            className="h-fit p-4"
+            open={open}
+            setOpen={setOpen}
+            closeOutside
+          >
             <div className="flex flex-col gap-4">
               <p className="text-[16px] font-semibold">Cek Data Pick-Up Anda</p>
               <p className="pb-[4px] text-[14px] font-normal text-gray-500">
@@ -179,12 +200,6 @@ const Page = () => {
               <button
                 className="w-full rounded-[12px] bg-[#309C7A] py-[10px] font-semibold text-white"
                 type="submit"
-                onClick={() => {
-                  const searchParams = new URLSearchParams();
-                  searchParams.set("_lat", pinpoint?.lat?.toString());
-                  searchParams.set("_long", pinpoint?.lng?.toString());
-                  router.push(`/customer/create-order/pickup-process?${searchParams.toString()}`);
-                }}
               >
                 <div className="flex items-center justify-center gap-2 align-middle">
                   <p className="text-[16px]">Pesan Pick-Up</p>
