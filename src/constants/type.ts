@@ -14,4 +14,20 @@ export type QueryHook = {
   isFetching: boolean
 }
 
+export enum OrderStatus {
+  ONGOING = "ONGOING",
+  ONTAKING = "ONTAKING",
+  ONGOING_SEND = "ONGOING_SEND",
+  DONE = "DONE",
+}
+
+export type TTrash = {
+  totalTrash: number
+  totalXp: number
+  detailTrash: {
+    name: string
+    total: number
+  }[]
+}
+
 export type NullishExtractor<T> = Exclude<T, undefined | null>
