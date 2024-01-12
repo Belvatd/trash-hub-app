@@ -1,5 +1,6 @@
 ## Trash Hub
 A platform that will help bring together household activities, scavengers, collectors and producers who will reuse recycled waste so that it can have selling value.
+[Check our application!](https://app-trash-hub.web.app/login)
 
 <img width="353" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/0dcb0446-7231-46ea-83de-e09176834195">
 <img width="354" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/36067636-ba88-487e-b1c8-1dcbf7d7f474">
