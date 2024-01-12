@@ -1,4 +1,4 @@
-<img width="298" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/5f0c0c27-4f54-4cc0-b778-f2a67672ca90">## Trash Hub
+## Trash Hub
 A platform that will help bring together household activities, scavengers, collectors and producers who will reuse recycled waste so that it can have selling value.
 
 <img width="353" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/0dcb0446-7231-46ea-83de-e09176834195">
@@ -9,6 +9,7 @@ A platform that will help bring together household activities, scavengers, colle
 <img width="302" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/243d81ff-a8eb-4a1a-96d5-80de12d5514a">
 <img width="302" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/58f22f93-b480-4dcd-8fa1-af76c0e4e319">
 <img width="300" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/d1992c67-b86a-48e6-885b-d0a5ca19db76">
+<img width="298" alt="image" src="https://github.com/Belvatd/trash-hub-app/assets/76638009/5f0c0c27-4f54-4cc0-b778-f2a67672ca90">
 
 ## Our Team
 
