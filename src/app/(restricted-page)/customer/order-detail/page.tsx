@@ -6,7 +6,7 @@ import {
   useGetCustomerOrder,
   useGetTrash,
 } from "@/hooks/services/CustomerOrders"
-import { useParams } from "next/navigation"
+import { useParams, useSearchParams } from "next/navigation"
 import SubHeaderStatus from "./components/SubHeaderStatus"
 import { OrderStatus } from "@/constants/type"
 import SellerSection from "./components/SellerSection"
@@ -15,7 +15,8 @@ import TrashSection from "./components/TrashSection"
 import formatDate from "@/utils/formatDate"
 
 const Page = () => {
-  const { id } = useParams<{ id: string }>()
+  const searchParams = useSearchParams()
+  const id = searchParams.get("orderId") || ""
 
   const { data: orderData, isLoading } = useGetCustomerOrder({
     variables: {
