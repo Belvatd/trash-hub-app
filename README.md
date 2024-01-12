@@ -14,18 +14,22 @@ A platform that will help bring together household activities, scavengers, colle
 ## Our Team
 
 Ruqul Adam Himawan: The Ambitious Hustler
+
 A dynamic hustler known for his relentless pursuit of success. With a passion for achieving goals, he navigates challenges with resilience and determination.
 [Get to know more about Adam!](https://www.linkedin.com/in/adamhimawan/)
 
 Rama Dharma Putra Sutanto: The Trendsetting Hipster
+
 He embraces the hipster lifestyle, setting trends with his unique taste and cultural flair. His distinctive style and creativity make him a standout in the crowd.
 [Get to know more about Rama!](https://www.linkedin.com/in/ramadharma/)
 
 Belva Talitha Dwiyanti: The Web Artisan
+
 A skilled web artisan, weaving digital experiences through her expertise in web development. With a keen eye for design and functionality, she crafts seamless and visually appealing web applications.
 [Get to know more about Belva!](https://www.linkedin.com/in/belvatalitha/)
 
 Ahmad Rizal Priyono: The Code Maestro
+
 A code maestro specializing in the art of web development. With a passion for crafting elegant and efficient solutions, he brings web applications to life with a touch of creativity and precision.
 [Get to know more about Rizal!](https://www.linkedin.com/in/rizalpriyono/)
 
