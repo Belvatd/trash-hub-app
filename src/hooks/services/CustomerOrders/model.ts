@@ -13,6 +13,7 @@ export const CreateOrderSchema = z.object({
     createdDate: z.string(),
     trashId: z.string(),
     fullAddress: z.string(),
+    cleanerId: z.string().optional(),
 })
 
 export type CreateOrderType = z.infer<typeof CreateOrderSchema>

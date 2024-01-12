@@ -13,6 +13,7 @@ import SellerSection from "./components/SellerSection"
 import { BounceLoader } from "react-spinners"
 import TrashSection from "./components/TrashSection"
 import formatDate from "@/utils/formatDate"
+import { useGetUserById } from "@/hooks/services/Auth"
 
 const Page = () => {
   const searchParams = useSearchParams()
@@ -25,6 +26,8 @@ const Page = () => {
     enabled: !!id,
   })
 
+  const { data: cleanerData } = useGetUserById(orderData?.cleanerId|| "")
+
   const { data: trashData } = useGetTrash({
     variables: {
       id: orderData?.trashId || "",
@@ -35,7 +38,7 @@ const Page = () => {
   return (
     <div className="flex h-full flex-col">
       <div className="border-b border-gray-200">
-        <ServiceHeader pageName="Detail Pick-Up" />
+        <ServiceHeader pageName="Detail Pick-Up" goToPage="/customer" />
       </div>
 
       {isLoading && (
@@ -59,7 +62,7 @@ const Page = () => {
             </div>
             <hr />
 
-            <SellerSection />
+            <SellerSection cleanerName={cleanerData?.fullName}/>
             <hr />
 
             <div className="py-6">

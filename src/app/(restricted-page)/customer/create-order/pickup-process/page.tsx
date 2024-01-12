@@ -78,12 +78,12 @@ const Page = () => {
   useEffect(() => {
     if (statusProgress === "DONE") {
       const timeout = setTimeout(() => {
-        router.push("/customer")
+        router.push(`/customer/order-detail?orderId=${orderId}`)
       }, 4000)
 
       return () => clearTimeout(timeout)
     }
-  }, [statusProgress, router])
+  }, [statusProgress, router, orderId])
 
   const { data: dataUserById } = useGetUserById("w3XsqIgIS0f7XJzVP5Ybk7irZ842")
 
@@ -124,10 +124,7 @@ const Page = () => {
                 <Divider />
                 <div className="justify-beetween flex items-center pt-4">
                   <div className="w-[15%]">
-                    <img
-                      src="/assets/images/cleaner-profile.png"
-                      alt="cleaner"
-                    />
+                    <div className="h-10 w-10 rounded-lg bg-slate-500"></div>
                   </div>
                   <div className="flex w-[60%] flex-col gap-1">
                     <p className="text-[16px] font-semibold">

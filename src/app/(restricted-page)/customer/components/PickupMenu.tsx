@@ -1,10 +1,17 @@
+"use client"
+
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 const PickupMenu = () => {
+  const router = useRouter()
   return (
     <>
       <div className="mx-auto flex w-16 flex-col items-center">
-        <button>
+        <button
+          type="button"
+          onClick={() => router.push("/customer/create-order")}
+        >
           <Image
             src={"/assets/icons/pickup-menu.svg"}
             alt="pickup-icon"
