@@ -1,9 +1,23 @@
-import Link from "next/link"
+"use client"
+
+// import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
+import { BounceLoader } from "react-spinners"
 
 export default function Home() {
+  const router = useRouter()
+  useEffect(() => {
+    router.push("/login")
+  }, [router])
+
   return (
     <main className="p-10">
-      Trash Hub
+      <BounceLoader
+        color="#309C7A"
+        className="fixed left-1/2 -translate-x-1/2 transform"
+      />
+      {/* Trash Hub
       <div>Anda ingin bergabung sebagai apa</div>
       <div className="flex gap-2">
         <Link href="/registration/cleaner">
@@ -15,7 +29,7 @@ export default function Home() {
       </div>
       <Link href="/login" className="mt-1 block">
         <button className="bg-slate-400">Login</button>
-      </Link>
+      </Link> */}
     </main>
   )
 }

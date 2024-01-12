@@ -29,7 +29,7 @@ function Page() {
 
       <div className="flex items-center justify-center gap-1 text-sm font-medium text-gray-500">
         Belum punya akun?{" "}
-        <Link href={"/registration/cleaner"} className="text-brand-600">
+        <Link href={"/registration/customer"} className="text-brand-600">
           Daftar
         </Link>
       </div>
